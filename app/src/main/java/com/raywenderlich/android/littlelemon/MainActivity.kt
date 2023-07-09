@@ -15,7 +15,7 @@ import com.raywenderlich.android.littlelemon.ui.theme.LittleLemonTheme
 
 
 class MainActivity : ComponentActivity() {
-    val sharedPreferences by lazy { getSharedPreferences("Little Lemon", MODE_PRIVATE) }
+    //val sharedPreferences by lazy { getSharedPreferences("Little Lemon", MODE_PRIVATE) }
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)

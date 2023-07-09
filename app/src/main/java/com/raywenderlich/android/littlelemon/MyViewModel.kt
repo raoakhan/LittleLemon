@@ -5,8 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import androidx.room.Room
-//import SKK.littlelemon.helpers.fetchMenu
-//import SKK.littlelemon.helpers.saveMenuToDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

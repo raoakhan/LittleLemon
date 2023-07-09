@@ -17,19 +17,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
+//import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+//import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+//import com.bumptech.glide.integration.compose.GlideImage
 import com.raywenderlich.android.littlelemon.ui.theme.PrimaryGreen
 import com.raywenderlich.android.littlelemon.ui.theme.PrimaryYellow
 import com.raywenderlich.android.littlelemon.ui.theme.Secondary2
 
-import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
-import com.bumptech.glide.integration.compose.GlideImage
-//import com.raywenderlich.android.littlelemon.Home.route
+//import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+//import com.bumptech.glide.integration.compose.GlideImage
+
 
 
 @Composable
@@ -45,8 +47,6 @@ fun Home(navController: NavHostController) {
         viewModel.fetchMenuDataIfNeeded()
     }
 
-
-
     Column() {
         Header(navController)
         UpperPanel(){
@@ -54,8 +54,6 @@ fun Home(navController: NavHostController) {
         }
         LowerPanel(databaseMenuItems, searchPhrase)
     }
-
-
 }
 
 @Composable
@@ -83,8 +81,6 @@ fun Header(navController: NavHostController){
                     .fillMaxSize()
                     .padding(vertical = 2.dp))
         }
-
-
     }
 }
 
@@ -95,7 +91,7 @@ fun UpperPanel(search : (parameter: String)-> Unit) {
         mutableStateOf("")
     }
 
-    Log.d("AAAAA", "UpperPanel: ${searchPhrase.value}")
+    Log.d("UPanel", "UpperPanel: ${searchPhrase.value}")
 
     Column(modifier = Modifier
         .background(PrimaryGreen)
@@ -150,11 +146,9 @@ fun LowerPanel(databaseMenuItems: List<MenuItemRoom>, search: MutableState<Strin
         }
     }.toSet()
 
-
     val selectedCategory = remember {
         mutableStateOf("")
     }
-
 
     val items = if(search.value == ""){
         databaseMenuItems
@@ -168,8 +162,6 @@ fun LowerPanel(databaseMenuItems: List<MenuItemRoom>, search: MutableState<Strin
 
 
     }
-
-
 
     val filteredItems = if(selectedCategory.value == "" || selectedCategory.value == "all"){
         items
@@ -247,7 +239,7 @@ fun CategoryButton(category:String, selectedCategory: (sel: String) -> Unit) {
     }
 }
 
-@OptIn(ExperimentalGlideComposeApi::class)
+//@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun MenuItem(item: MenuItemRoom) {
 
@@ -277,10 +269,10 @@ fun MenuItem(item: MenuItemRoom) {
 
             }
 
-            GlideImage(model = item.imageUrl,
-                contentDescription = "",
-                Modifier.size(100.dp, 100.dp),
-                contentScale = ContentScale.Crop)
+//            GlideImage(model = item.imageUrl,
+//                contentDescription = "",
+//                Modifier.size(100.dp, 100.dp),
+//                contentScale = ContentScale.Crop)
         }
     }
 
